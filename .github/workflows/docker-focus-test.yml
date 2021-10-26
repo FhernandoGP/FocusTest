@@ -30,7 +30,7 @@ jobs:
       # Build Docker image 
       # https://github.com/docker/build-push-action
       - name: Build Docker image
-        run: docker build . --file Dockerfile --tag $IMAGE_NAME
+        run: docker build . --file ./application/test-focus/Dockerfile --tag $IMAGE_NAME
       
      # install the doctl on the runner
       - name: Install doctl                
