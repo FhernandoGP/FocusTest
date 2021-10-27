@@ -44,3 +44,17 @@ jobs:
           doctl registry login
           docker tag $IMAGE_NAME ${{ env.REGISTRY }}/$IMAGE_NAME
           docker push ${{ env.REGISTRY }}/$IMAGE_NAME
+          
+          
+      - name: 'Deploy'
+        uses: 'deliverybot/helm@v1'
+        with:
+          release: 'nginx'
+          track: canary
+          namespace: 'default'
+          chart: 'app'
+          token: '${{ github.token }}'
+          values: |
+            name: foobar
+        env:
+          KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
