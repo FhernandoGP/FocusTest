@@ -52,7 +52,7 @@ jobs:
         with:
           helm: helm3
           token: '${{ github.token }}'
-          chart: './charts/test-focus/'
+          chart: './charts/test-focus/Chart.yml'
           secrets: '${{ toJSON(secrets) }}'
           namespace: 'test'
           release: test-focusapp
