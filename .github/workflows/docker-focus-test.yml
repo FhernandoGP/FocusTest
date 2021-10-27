@@ -53,9 +53,8 @@ jobs:
           token: '${{ github.token }}'
           chart: './charts/test-focus/'
           secrets: '${{ toJSON(secrets) }}'
-          namespace: 'default'
+          namespace: 'test'
           release: test-focusapp
-          track: test-focus
           value-files: './charts/test-focus/values.yaml'
 
         env:
