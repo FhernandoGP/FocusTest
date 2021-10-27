@@ -54,8 +54,7 @@ jobs:
           secrets: '${{ toJSON(secrets) }}'
           namespace: test
           release: test-focusapp
-          working-directory: ./charts/test-focus/
-          value-files: 'values.yaml'
+          value-files: './charts/test-focus/values.yaml'
         env:
           KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
 
