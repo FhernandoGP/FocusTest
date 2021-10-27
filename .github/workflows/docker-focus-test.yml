@@ -50,6 +50,7 @@ jobs:
       - name: 'Deploy'
         uses: 'deliverybot/helm@master'
         with:
+          helm: helm3
           token: '${{ github.token }}'
           chart: './charts/test-focus/'
           secrets: '${{ toJSON(secrets) }}'
