@@ -53,7 +53,7 @@ jobs:
           track: canary
           namespace: 'default'
           chart: 'app'
-          token: '${{ github.token }}'
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
           values: |
             name: foobar
         env:
