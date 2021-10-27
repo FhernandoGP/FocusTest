@@ -45,8 +45,10 @@ jobs:
           docker tag $IMAGE_NAME ${{ env.REGISTRY }}/$IMAGE_NAME
           docker push ${{ env.REGISTRY }}/$IMAGE_NAME
           
+        
           
       - name: 'Deploy'
+      
         uses: 'deliverybot/helm@master'
         with:
           token: '${{ github.token }}'
@@ -54,7 +56,11 @@ jobs:
           secrets: '${{ toJSON(secrets) }}'
           namespace: test
           release: test-focusapp
-          value-files: './charts/test-focus/values.yaml'
+          track: test-focus
+          values: |
+            name: foobar
+          #value-files: './charts/test-focus/values.yaml'
+
         env:
           KUBECONFIG_FILE: '${{ secrets.KUBECONFIG_FILE }}'
 
