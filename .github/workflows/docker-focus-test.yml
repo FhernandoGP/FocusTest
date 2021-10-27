@@ -54,7 +54,7 @@ jobs:
           token: '${{ github.token }}'
           chart: 'app'
           secrets: '${{ toJSON(secrets) }}'
-          namespace: test
+          namespace: tiller
           release: test-focusapp
           track: test-focus
           values: |
