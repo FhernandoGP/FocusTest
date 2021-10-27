@@ -48,18 +48,15 @@ jobs:
         
           
       - name: 'Deploy'
-      
         uses: 'deliverybot/helm@master'
         with:
           token: '${{ github.token }}'
-          chart: 'app'
+          chart: './charts/test-focus/'
           secrets: '${{ toJSON(secrets) }}'
-          namespace: tiller
+          namespace: 'default'
           release: test-focusapp
           track: test-focus
-          values: |
-            name: foobar
-          #value-files: './charts/test-focus/values.yaml'
+          value-files: './charts/test-focus/values.yaml'
 
         env:
           KUBECONFIG_FILE: '${{ secrets.KUBECONFIG_FILE }}'
