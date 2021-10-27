@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository:
+  repository: ${{ env.REGISTRY }}/$IMAGE_NAME
   tag:
   pullPolicy: Always
 
