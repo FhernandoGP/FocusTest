@@ -1,4 +1,4 @@
-{{- if .Values.ingress.enabled -}}
+{{- if .Values.test-focus.ingress.enabled -}}
 {{- $fullName := include "test-focus.fullname" . -}}
 {{- $ingressPath := .Values.ingress.path -}}
 apiVersion: extensions/v1beta1
@@ -26,7 +26,7 @@ spec:
   {{- end }}
 {{- end }}
   rules:
-  {{- range .Values.ingress.hosts }}
+  {{- range .Values.test-focus.ingress.hosts }}
     - host: {{ .host | quote }}
       http:
         paths:
