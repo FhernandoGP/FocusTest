@@ -1,6 +1,6 @@
-{{- if .Values.test-focus.ingress.enabled -}}
+{{- if .Values.focus-app.ingress.enabled -}}
 {{- $fullName := include "test-focus.fullname" . -}}
-{{- $ingressPath := .Values.ingress.path -}}
+{{- $ingressPath := .Values.focus-app.ingress.path -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -26,7 +26,7 @@ spec:
   {{- end }}
 {{- end }}
   rules:
-  {{- range .Values.test-focus.ingress.hosts }}
+  {{- range .Values.focus-app.ingress.hosts }}
     - host: {{ .host | quote }}
       http:
         paths:
